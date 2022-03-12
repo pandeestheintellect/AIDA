@@ -1,0 +1,91 @@
+
+<div mat-dialog-content class="app-dialog">
+    <h2 >{{action}} Register of {{title}} </h2>
+        <ng-template [ngIf]="action != 'Delete'" [ngIfElse]="delete">
+
+            <div fxLayout="row wrap" class="edit-section">
+
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="60%">
+                    <mat-label>Member</mat-label>
+                        <mat-select  name="memberList" [(ngModel)]="localData.officerId">
+                            <mat-option *ngFor="let type of memberList" [value]="type.value"> 
+                                {{type.text}}
+                            </mat-option>
+                        </mat-select>
+                </mat-form-field>
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                    <mat-label>Identity Type</mat-label>
+                        <mat-select  name="identityTypeList" [(ngModel)]="localData.identityType">
+                            <mat-option *ngFor="let type of identityTypeList" [value]="type.value"> 
+                                {{type.text}}
+                            </mat-option>
+                        </mat-select>
+                </mat-form-field>
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%"> 
+                    <mat-label>Date of Entry</mat-label>
+                        <input matInput [matDatepicker]="entryDate" [(ngModel)]="localData.entryDate" >
+                        <mat-datepicker-toggle matSuffix [for]="entryDate"></mat-datepicker-toggle>
+                        <mat-datepicker #entryDate></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                    <mat-label>Date of Allotment</mat-label>
+                        <input matInput [matDatepicker]="allotmentDate" [(ngModel)]="localData.allotmentDate" >
+                        <mat-datepicker-toggle matSuffix [for]="allotmentDate"></mat-datepicker-toggle>
+                        <mat-datepicker #allotmentDate></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                    <mat-label>Allotment No
+                        </mat-label><input matInput [(ngModel)]="localData.allotmentNo">
+                </mat-form-field> 
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                    <mat-label>Certificate No
+                        </mat-label><input matInput [(ngModel)]="localData.certificateNo">
+                </mat-form-field> 
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                    <mat-label>Price
+                        </mat-label><input matInput [(ngModel)]="localData.price">
+                </mat-form-field> 
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                    <mat-label>From
+                        </mat-label><input matInput [(ngModel)]="localData.srFrom">
+                </mat-form-field> 
+                
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                    <mat-label>To 
+                        </mat-label><input matInput [(ngModel)]="localData.srTo">
+                </mat-form-field> 
+
+
+                
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                    <mat-label>Acquisitions
+                        </mat-label><input matInput [(ngModel)]="localData.acquisitions">
+                </mat-form-field> 
+                
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                    <mat-label>Disposals
+                        </mat-label><input matInput [(ngModel)]="localData.disposals">
+                </mat-form-field> 
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                    <mat-label>Balance
+                        </mat-label><input matInput [(ngModel)]="localData.balance">
+                </mat-form-field> 
+
+                
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                    <mat-label>Class of Share
+                        </mat-label><input matInput [(ngModel)]="localData.classOfShare">
+                </mat-form-field> 
+
+            </div>
+              
+        </ng-template>
+        <ng-template #delete>
+            Sure to delete  
+        </ng-template>
+</div>
+<div mat-dialog-actions style="justify-content: flex-end;">
+    <button mat-button (click)="OnOK()"    mat-flat-button color="primary">{{action}}</button>
+    <button mat-button (click)="OnClose()" mat-flat-button color="warn">Cancel</button>
+</div>

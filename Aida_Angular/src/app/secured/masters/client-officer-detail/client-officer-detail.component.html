@@ -1,0 +1,161 @@
+<h2 mat-dialog-title>{{action}} Business Officer Details</h2>
+<div class="app-dialog" mat-dialog-content>
+    <ng-template [ngIf]="action != 'Delete'" [ngIfElse]="delete">
+        <div fxLayout="row wrap" class="edit-section">
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="40%">
+                <mat-label>Name</mat-label><input matInput [(ngModel)]="localData.name" [disabled]="myInfo">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="40%">
+                <mat-label>Alias Name</mat-label><input matInput [(ngModel)]="localData.aliasName" [disabled]="myInfo">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <mat-label>Residential Status</mat-label><input matInput [(ngModel)]="localData.residentialStatus" [disabled]="myInfo">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="40%">
+                
+                <mat-label>Address</mat-label><textarea matInput [(ngModel)]="localData.address" rows=2 [disabled]="myInfo"></textarea>
+            </mat-form-field>
+
+
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <br>
+                <mat-label>Sex</mat-label>
+                    <mat-select [(ngModel)]="localData.sex" name="sex" [disabled]="myInfo">
+                        <mat-option *ngFor="let type of userSex" [value]="type.value">
+                            {{type.text}}
+                        </mat-option>
+                    </mat-select>
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <br>
+                <mat-label>Nationality</mat-label><input matInput [(ngModel)]="localData.nationality" [disabled]="myInfo">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <br>
+                <mat-label>Race</mat-label><input matInput [(ngModel)]="localData.race" [disabled]="myInfo">
+            </mat-form-field>
+
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <mat-label>Date of Birth</mat-label>
+                    <input matInput [matDatepicker]="picker" [(ngModel)]="localData.birthDate" [disabled]="myInfo">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <mat-label>Place of Birth</mat-label><input matInput [(ngModel)]="localData.birthPlace">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <mat-label>Country of Birth</mat-label><input matInput [(ngModel)]="localData.birthCountry" [disabled]="myInfo">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <mat-label>Joining Date</mat-label>
+                    <input matInput [matDatepicker]="joinDate" [(ngModel)]="localData.joinDate">
+                    <mat-datepicker-toggle matSuffix [for]="joinDate"></mat-datepicker-toggle>
+                    <mat-datepicker #joinDate></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <mat-label>Designation</mat-label><input matInput [(ngModel)]="localData.position">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <mat-label>Company Shares</mat-label><input matInput [(ngModel)]="localData.numberOfShares" (blur)="transformAmount($event)">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <mat-label>Role</mat-label>
+                    <mat-select [(ngModel)]="localData.userRole" name="userRole" (ngModelChange)="OnRoleChange()">
+                        <mat-option *ngFor="let type of userRole" [value]="type.value">
+                            {{type.text}}
+                        </mat-option>
+                    </mat-select>
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <mat-label>Role Type</mat-label>
+                    <mat-select [(ngModel)]="localData.entityType" name="roleType">
+                        <mat-option *ngFor="let type of roleType" [value]="type.value">
+                            {{type.text}}
+                        </mat-option>
+                    </mat-select>
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <mat-label>Phone</mat-label><input matInput [(ngModel)]="localData.phone">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <mat-label>Mobile</mat-label><input matInput [(ngModel)]="localData.mobile" >
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <mat-label>Email</mat-label><input matInput [(ngModel)]="localData.email" >
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <mat-label>Pass Type</mat-label><input matInput [(ngModel)]="localData.passType" [disabled]="myInfo">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-md="20%">
+                <mat-label>FIN</mat-label><input matInput [(ngModel)]="localData.finNo" >
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-md="20%">
+                <mat-label>FIN Issue Date</mat-label>
+                    <input matInput [matDatepicker]="finIssueDate" [(ngModel)]="localData.finIssueDate">
+                    <mat-datepicker-toggle matSuffix [for]="finIssueDate"></mat-datepicker-toggle>
+                    <mat-datepicker #finIssueDate></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-md="20%">
+                <mat-label>FIN Expiry Date</mat-label>
+                    <input matInput [matDatepicker]="finExpiryDate" [(ngModel)]="localData.finExpiryDate">
+                    <mat-datepicker-toggle matSuffix [for]="finExpiryDate"></mat-datepicker-toggle>
+                    <mat-datepicker #finExpiryDate></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="auto" fxFlex.gt-md="20%">
+                <mat-label>NRIC NO</mat-label><input matInput [(ngModel)]="localData.nricNo" [disabled]="myInfo">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-md="20%">
+                <mat-label>NRIC Issue Date</mat-label>
+                    <input matInput [matDatepicker]="nricIssueDate" [(ngModel)]="localData.nricIssueDate">
+                    <mat-datepicker-toggle matSuffix [for]="nricIssueDate"></mat-datepicker-toggle>
+                    <mat-datepicker #nricIssueDate></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-md="20%">
+                <mat-label>NRIC Issue Place</mat-label><input matInput [(ngModel)]="localData.nricIssuePlace">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-md="20%">
+                <mat-label>NRIC Issue Country</mat-label><input matInput [(ngModel)]="localData.nricIssueCountry">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-md="20%">
+                <mat-label>NRIC Expiry Date</mat-label>
+                    <input matInput [matDatepicker]="nricExpiryDate" [(ngModel)]="localData.nricExpiryDate">
+                    <mat-datepicker-toggle matSuffix [for]="nricExpiryDate"></mat-datepicker-toggle>
+                    <mat-datepicker #nricExpiryDate></mat-datepicker>
+            </mat-form-field>
+
+
+            <mat-form-field fxFlex="auto" fxFlex.gt-md="20%">
+                <mat-label>Passport NO</mat-label><input matInput [(ngModel)]="localData.passportNo">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-md="20%">
+                <mat-label>Passport Issue Date</mat-label>
+                    <input matInput [matDatepicker]="passportIssueDate" [(ngModel)]="localData.passportIssueDate">
+                    <mat-datepicker-toggle matSuffix [for]="passportIssueDate"></mat-datepicker-toggle>
+                    <mat-datepicker #passportIssueDate></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-md="20%">
+                <mat-label>Passport Issue Place</mat-label><input matInput [(ngModel)]="localData.passportIssuePlace">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-md="20%">
+                <mat-label>Passport Issue Country</mat-label><input matInput [(ngModel)]="localData.passportIssueCountry">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-md="20%">
+                <mat-label>Passport Expiry Date</mat-label>
+                    <input matInput [matDatepicker]="passportExpiryDate" [(ngModel)]="localData.passportExpiryDate">
+                    <mat-datepicker-toggle matSuffix [for]="passportExpiryDate"></mat-datepicker-toggle>
+                    <mat-datepicker #passportExpiryDate></mat-datepicker>
+            </mat-form-field>
+            
+        </div>
+    </ng-template>
+    <ng-template #delete>
+        Sure to delete <b>{{localData.name}}</b>
+    </ng-template>
+</div>
+<div mat-dialog-actions style="justify-content: flex-end;">
+    <button mat-button (click)="OnImport()"    mat-flat-button color="primary">Import</button>
+    <button mat-button (click)="OnOK()"    mat-flat-button color="primary">Ok</button>
+    <button mat-button (click)="OnClose()" mat-flat-button color="warn">Cancel</button>
+</div>

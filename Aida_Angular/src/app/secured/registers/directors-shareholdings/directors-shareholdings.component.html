@@ -1,0 +1,28 @@
+<div class="mat-elevation-z4 app-page"> 
+
+    <app-page-toolbar [title]="pageTitle" [addNew]="false"></app-page-toolbar>
+    
+    
+    <div  fxLayout="row" fxLayoutWrap class="control-bar" style="padding-bottom: 0px !important;">
+           
+      <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+          <mat-label>Choose Client Profile</mat-label>
+          <mat-select [(ngModel)]="clientProfileId" name="businessProfileName" (selectionChange)="onLoadOfficer()">
+              <mat-option *ngFor="let type of companyNameList" [value]="type.value">{{type.text}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+    
+        <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+          <mat-label>Choose Officers</mat-label>
+          <mat-select [(ngModel)]="officerId" name="officerList">
+              <mat-option *ngFor="let type of officerList" [value]="type.value">{{type.text}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      
+      <div style="padding: 10px;height: 40px;" fxFlex="auto" fxFlex.gt-sm="15%">
+          <button mat-button mat-flat-button  (click)="OnPrint()" color="primary">Download PDF</button>
+      </div>
+  </div>
+
+
+</div>      

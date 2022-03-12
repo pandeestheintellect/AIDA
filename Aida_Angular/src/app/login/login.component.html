@@ -1,0 +1,29 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center">
+  
+    <mat-card class="box">
+        <mat-card-header>
+            <mat-card-title>Log in</mat-card-title>
+          </mat-card-header>
+        <form class="login-form"> 
+    <mat-card-content>
+      
+        <mat-form-field class="login-full-width">
+          <input type="text" matInput placeholder="Username" name="Username" [(ngModel)]="username" [disabled]="usernameDisabled">
+        </mat-form-field>
+      
+      <p>
+        <mat-form-field class="login-full-width">
+          <input type="password" matInput placeholder="{{passwordPlaceholder}}" name="password"  [(ngModel)]="password">
+        </mat-form-field>
+      </p>
+      <br>
+      <p *ngIf="note.length>0">
+        {{ note }}
+      </p>
+    
+    </mat-card-content>
+    <button mat-raised-button color="primary" (click)="Onlogin()"  class="btn-block">Log in</button>
+    </form>
+    
+    </mat-card>
+    </div>

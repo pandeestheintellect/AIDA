@@ -1,0 +1,58 @@
+
+<div class="app-dialog" mat-dialog-content>
+    <h2 >{{action}} Service SOP Details</h2>
+    <ng-template [ngIf]="action != 'Delete'" [ngIfElse]="delete">
+        <div fxLayout="row wrap" class="edit-section" fxLayoutAlign="center center">
+            
+            <div class="service-sop-container">
+                <div>
+                    <mat-form-field class="full-width">
+                        <mat-label>Role</mat-label>
+                        <mat-select [(ngModel)]="userRole" name="designationList" [disabled]="isModify">
+                            <mat-option *ngFor="let type of userRoleList" [value]="type.value">
+                                {{type.text}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    
+                </div>
+              
+                <div
+                  cdkDropList
+                  #selectedList="cdkDropList"
+                  [cdkDropListData]="selectedDocument"
+                  [cdkDropListConnectedTo]="[availableList]"
+                  class="service-sop-list"
+                  (cdkDropListDropped)="drop($event)">
+                  <div class="service-sop-box" *ngFor="let item of selectedDocument" cdkDrag>
+                    {{item.name}}<br>{{item.versionNo}}
+                  </div>
+                </div>
+              </div>
+              
+              <div class="service-sop-container">
+                <h3 style="margin-top: 26px;">Available Documents</h3>
+              
+                <div
+                  cdkDropList
+                  #availableList="cdkDropList"
+                  [cdkDropListData]="availableDocument"
+                  [cdkDropListConnectedTo]="[selectedList]"
+                  class="service-sop-list"
+                  (cdkDropListDropped)="drop($event)">
+                  <div class="service-sop-box" *ngFor="let item of availableDocument" cdkDrag>
+                    {{item.name}}<br>{{item.versionNo}}
+                  </div>
+                </div>
+              </div>
+
+        </div>
+    </ng-template>
+    <ng-template #delete>
+        Sure to delete <b>{{userRole}}</b> from <b>{{serviceCode}}</b> service?
+    </ng-template>
+</div>
+<div mat-dialog-actions style="justify-content: flex-end;">
+    <button mat-button (click)="OnOK()"    mat-flat-button color="primary">Ok</button>
+    <button mat-button (click)="OnClose()" mat-flat-button color="warn">Cancel</button>
+</div>

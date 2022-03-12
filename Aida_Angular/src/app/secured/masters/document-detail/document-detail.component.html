@@ -1,0 +1,70 @@
+<div mat-dialog-title>
+    <h2 >{{action}} Document Details</h2>
+</div>
+<div class="app-dialog" mat-dialog-content>
+    <ng-template [ngIf]="action != 'Delete'" [ngIfElse]="delete">
+        <div fxLayout="row wrap" class="edit-section">
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <mat-label>Code</mat-label><input matInput [(ngModel)]="localData.code">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="40%">
+                <mat-label>Name</mat-label><input matInput [(ngModel)]="localData.name">
+            </mat-form-field>
+
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="40%">
+                <mat-label>File Name</mat-label><input matInput [(ngModel)]="localData.fileName">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <mat-label>Effective Date</mat-label>
+                    <input matInput [matDatepicker]="effectiveDate" [(ngModel)]="localData.effectiveDate">
+                    <mat-datepicker-toggle matSuffix [for]="effectiveDate"></mat-datepicker-toggle>
+                    <mat-datepicker #effectiveDate></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <mat-label>Version No</mat-label><input matInput [(ngModel)]="localData.versionNo">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <mat-label>Status</mat-label>
+                    <mat-select [(ngModel)]="localData.industryType" name=" statusList">
+                        <mat-option *ngFor="let type of statusList" [value]="type.value">
+                            {{type.text}}
+                        </mat-option>
+                    </mat-select>
+            </mat-form-field>
+        </div>
+        <table class="table" mat-table [dataSource]="dataSource" >
+            <ng-container matColumnDef="keyword">
+              <th mat-header-cell *matHeaderCellDef width ="200"> Keyword </th>
+              <td mat-cell *matCellDef="let element"> {{element.keyword}} </td>
+            </ng-container>
+          <ng-container matColumnDef="label">
+              <th mat-header-cell *matHeaderCellDef width ="600"> Label </th>
+              <td mat-cell *matCellDef="let element"> {{element.label}} </td>
+          </ng-container>
+            <ng-container matColumnDef="control">
+              <th mat-header-cell *matHeaderCellDef> Control </th>
+              <td mat-cell *matCellDef="let element"> {{element.control}} </td>
+            </ng-container>
+          <ng-container matColumnDef="nature">
+            <th mat-header-cell *matHeaderCellDef width ="600"> Nature </th>
+            <td mat-cell *matCellDef="let element"> {{element.nature}} </td>
+        </ng-container>
+          <ng-container matColumnDef="isRequired">
+            <th mat-header-cell *matHeaderCellDef> Required </th>
+            <td mat-cell *matCellDef="let element"> {{element.isRequired}} </td>
+          </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+          </table>
+    </ng-template>
+    <ng-template #delete>
+        Sure to delete <b>{{localData.companyName}}</b>
+    </ng-template>
+</div>
+<div mat-dialog-actions style="justify-content: flex-end;">
+    <button mat-button (click)="OnOK()"    mat-flat-button color="primary">Ok</button>
+    <button mat-button (click)="OnClose()" mat-flat-button color="warn">Cancel</button>
+</div>

@@ -1,0 +1,78 @@
+
+<div mat-dialog-content class="app-dialog">
+    <h2 >{{action}} Registrable Controllers (For Corporate Entities)</h2>
+        <ng-template [ngIf]="action != 'Delete'" [ngIfElse]="delete">
+
+            <div fxLayout="row wrap" class="edit-section">
+
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="75%">
+                    <mat-label>Registrable Controller Name</mat-label>
+                    <input matInput [(ngModel)]="localData.name">
+                </mat-form-field> 
+                
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%"> 
+                    <mat-label>Date of Entry</mat-label>
+                        <input matInput [matDatepicker]="entryDate" [(ngModel)]="localData.entryDate" >
+                        <mat-datepicker-toggle matSuffix [for]="entryDate"></mat-datepicker-toggle>
+                        <mat-datepicker #entryDate></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="100%">
+                    <mat-label>Address of registered office</mat-label>
+                    <textarea matInput [(ngModel)]="localData.address"></textarea>
+                </mat-form-field> 
+
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                    <mat-label>Unique entity number </mat-label>
+                    <input matInput [(ngModel)]="localData.registrationNo">
+                </mat-form-field> 
+
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                    <mat-label>Legal form</mat-label>
+                    <input matInput [(ngModel)]="localData.legalForm">
+                </mat-form-field> 
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                    <mat-label>Jurisdiction </mat-label>
+                    <input matInput [(ngModel)]="localData.jurisdiction">
+                </mat-form-field> 
+    
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                    <mat-label>Statute </mat-label>
+                    <input matInput [(ngModel)]="localData.statue">
+                </mat-form-field>
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                    <mat-label>Name of corporate entity register </mat-label>
+                    <input matInput [(ngModel)]="localData.identityNo">
+                </mat-form-field> 
+    
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                    <mat-label>Identification number  </mat-label>
+                    <input matInput [(ngModel)]="localData.registerName">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                    <mat-label>Date of Appointment</mat-label>
+                        <input matInput [matDatepicker]="startDate" [(ngModel)]="localData.startDate" >
+                        <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                        <mat-datepicker #startDate></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                    <mat-label>Date of Cessation</mat-label>
+                        <input matInput [matDatepicker]="cessationDate" [(ngModel)]="localData.cessationDate" >
+                        <mat-datepicker-toggle matSuffix [for]="cessationDate"></mat-datepicker-toggle>
+                        <mat-datepicker #cessationDate></mat-datepicker>
+                </mat-form-field>
+    
+ 
+    
+            </div>
+              
+        </ng-template>
+        <ng-template #delete>
+            Sure to delete  
+        </ng-template>
+</div>
+<div mat-dialog-actions style="justify-content: flex-end;">
+    <button mat-button (click)="OnOK()"    mat-flat-button color="primary">{{action}}</button>
+    <button mat-button (click)="OnClose()" mat-flat-button color="warn">Cancel</button>
+</div>

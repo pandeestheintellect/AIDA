@@ -1,0 +1,27 @@
+
+<div class="app-dialog" mat-dialog-content>
+    <h2 >{{action}} Service Definition Details</h2>
+    <ng-template [ngIf]="action != 'Delete'" [ngIfElse]="delete">
+        <div fxLayout="row wrap" class="edit-section">
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="15%">
+                <mat-label>Code</mat-label><input matInput [(ngModel)]="localData.code" [disabled]="isModify">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="30%">
+                <mat-label>Name</mat-label><input matInput [(ngModel)]="localData.name">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="40%">
+                <mat-label>Remarks</mat-label><input matInput [(ngModel)]="localData.remarks">
+            </mat-form-field>
+            <div fxFlex="auto" fxFlex.gt-sm="14%">
+                <mat-checkbox  [(ngModel)]="IsChecked" color="primary">Has Optional Docs</mat-checkbox>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template #delete>
+        Sure to delete <b>{{localData.name}}</b> service?
+    </ng-template>
+</div>
+<div mat-dialog-actions style="justify-content: flex-end;">
+    <button mat-button (click)="OnOK()"    mat-flat-button color="primary">Ok</button>
+    <button mat-button (click)="OnClose()" mat-flat-button color="warn">Cancel</button>
+</div>

@@ -1,0 +1,46 @@
+
+<div mat-dialog-content class="app-dialog">
+    <h2 >{{action}} Nominee Directors & Nominators</h2>
+        <ng-template [ngIf]="action != 'Delete'" [ngIfElse]="delete">
+
+            <div fxLayout="row wrap" class="edit-section">
+
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                    <mat-label>Nature</mat-label>
+                        <mat-select  name="natureList" [(ngModel)]="localData.nature" (selectionChange)="onNatureChange()">
+                            <mat-option *ngFor="let type of natureList" [value]="type.value"> 
+                                {{type.text}}
+                            </mat-option>
+                        </mat-select>
+                </mat-form-field>
+
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="40%">
+                    <mat-label>Member</mat-label>
+                        <mat-select  name="memberList" [(ngModel)]="localData.officerId">
+                            <mat-option *ngFor="let type of memberList" [value]="type.value"> 
+                                {{type.text}}
+                            </mat-option>
+                        </mat-select>
+                </mat-form-field>
+ 
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="40%">
+                    <mat-label>Nominator</mat-label>
+                        <mat-select  name="nominatorList" [(ngModel)]="localData.nominatorId">
+                            <mat-option *ngFor="let type of nominatorList" [value]="type.value"> 
+                                {{type.text}}
+                            </mat-option>
+                        </mat-select>
+                </mat-form-field>
+
+                
+            </div>
+              
+        </ng-template>
+        <ng-template #delete>
+            Sure to delete  
+        </ng-template>
+</div>
+<div mat-dialog-actions style="justify-content: flex-end;">
+    <button mat-button (click)="OnOK()"    mat-flat-button color="primary">{{action}}</button>
+    <button mat-button (click)="OnClose()" mat-flat-button color="warn">Cancel</button>
+</div>

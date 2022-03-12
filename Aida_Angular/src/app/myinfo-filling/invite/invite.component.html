@@ -1,0 +1,36 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center">
+  
+    <mat-card class="box">
+        <mat-card-header *ngIf="showMyInfo===false">
+            <mat-card-title>Log in</mat-card-title>
+          </mat-card-header>
+        <form class="login-form"> 
+    <mat-card-content>
+      
+     <div style="margin-top: 20px;" *ngIf="showMyInfo===false">We are sending OTP to your email, Please use it to continue</div>
+
+      
+      <p *ngIf="showMyInfo===false">
+        <mat-form-field class="login-full-width">
+          <input type="password" matInput placeholder="OTP" name="OTP"  [(ngModel)]="password">
+        </mat-form-field>
+      </p>
+      <br>
+      <p *ngIf="notes">
+        {{ notes }}
+      </p>
+      <div *ngIf="showMyInfo===true" style="text-align: center;">
+            
+        <img src='/assets/singpass-logo.png' width="234px">
+        <h3 >Fill the details using MyInfo</h3>
+        You can fill the detail via SignPass login.
+        
+    </div>
+
+    </mat-card-content>
+    <button mat-raised-button color="primary" (click)="Onlogin()"  class="btn-block" *ngIf="showMyInfo===false">Log in</button>
+    <img src='/assets/myinfo-button-Inline.png' width="318px" (click)="OnMyInfo()"  *ngIf="showMyInfo===true">
+    </form>
+    
+    </mat-card>
+    </div>

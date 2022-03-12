@@ -1,0 +1,41 @@
+<mat-toolbar class="main-toolbar">
+    <img src="../../assets/logo.png" width="36px">
+    <h1 class="logo">
+        AchiBiz.
+        <span style="font-size: 12px;">com</span>
+    </h1>
+  
+    <span class="spacer"></span>
+    <span>{{username}}</span>
+  </mat-toolbar>
+
+  <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center">
+  
+    <mat-card class="box">
+        <mat-card-header>
+            <mat-card-title>Validating</mat-card-title>
+          </mat-card-header>
+        <form class="login-form"> 
+    <mat-card-content>
+      
+        <mat-form-field class="login-full-width">
+          <mat-label>We are sending OTP on your email, Please use it to continue</mat-label>
+        </mat-form-field>
+      
+      <p>
+        <mat-form-field class="login-full-width">
+          <input type="password" matInput placeholder="Password" name="password"  [(ngModel)]="password">
+        </mat-form-field>
+      </p>
+      <br>
+      <p *ngIf="error" class="error">
+        {{ error }}
+      </p>
+    
+    </mat-card-content>
+    <button mat-raised-button color="primary" (click)="Onlogin()"  class="btn-block">Log in</button>
+    </form>
+    
+    </mat-card>
+    </div>
+    

@@ -1,0 +1,28 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center">
+  
+    <mat-card class="box">
+        <mat-card-header>
+            <mat-card-title>Log in</mat-card-title>
+          </mat-card-header>
+        <form class="login-form"> 
+    <mat-card-content>
+      
+     <div style="margin-top: 20px;">We are sending OTP to your email, Please use it to continue</div>
+
+      
+      <p>
+        <mat-form-field class="login-full-width">
+          <input type="password" matInput placeholder="OTP" name="OTP"  [(ngModel)]="password">
+        </mat-form-field>
+      </p>
+      <br>
+      <p *ngIf="notes">
+        {{ notes }}
+      </p>
+    
+    </mat-card-content>
+    <button mat-raised-button color="primary" (click)="Onlogin()"  class="btn-block">Log in</button>
+    </form>
+    
+    </mat-card>
+    </div>

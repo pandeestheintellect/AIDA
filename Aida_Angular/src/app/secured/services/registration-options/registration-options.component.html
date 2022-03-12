@@ -1,0 +1,24 @@
+<div mat-dialog-title>
+ 
+  <div fxLayout="row" fxLayoutGap="10px" >
+    
+    <button mat-button style="height: 40px !important;" (click)="expandAll()"    mat-flat-button color="primary">Expand All</button>
+    <button mat-button style="height: 40px !important;" (click)="collapseAll()" mat-flat-button color="primary">Collapse All</button>
+
+    <h2>Choose documents</h2>
+
+</div>
+</div>
+<div class="app-dialog" mat-dialog-content >
+
+  <db-angular-tree-grid #angularGrid [data]="gridData" [configs]="configs" ></db-angular-tree-grid>
+  <br>
+</div>
+<div fxLayout="row wrap" fxLayoutGap="10px" class="footer-toolbar" fxLayoutAlign="end end">
+  
+  <button mat-button (click)="OnOK()"    mat-flat-button color="primary">Ok</button>
+  <button mat-button (click)="OnClose()" mat-flat-button color="warn">Cancel</button>
+</div>     
+
+
+    

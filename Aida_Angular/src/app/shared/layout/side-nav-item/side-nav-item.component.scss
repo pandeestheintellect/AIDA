@@ -1,0 +1,79 @@
+@import '~@angular/material/theming';
+
+@mixin mat-list-icon($size: 24px) {
+    font-size: $size;
+    height: $size;
+    width: $size;
+}
+@mixin mat-chip() {
+    padding: 1px 7px;
+}
+
+@mixin sidemenu-item($theme,$icon-size) {
+
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    
+    .sidenav-dropdown-indicator {
+        transition: transform .25s;
+        &.indicateOpen {
+            transform: rotate(180deg);
+        }
+    }
+    mat-nav-list {
+        overflow: hidden;
+        padding-top: 0px;
+        
+    }
+   
+    .primary{
+        transition: max-height .4s cubic-bezier(.35, 0, .25, 1);  
+        padding-top: 0px !important;
+    }
+    .primary:hover{
+        background:rgba(138, 181, 221, 0.44) !important; 
+    }
+    .parent-menu-color {
+        color:  mat-color($primary) !important; 
+    }
+
+    .parent-menu-color:hover{
+        background: rgba(32, 17, 117, 0.04) !important; 
+    }
+
+    .parent-menu-color.active{
+        background:rgba(65, 101, 221, 0.6) !important; 
+        color: white !important;
+    }
+
+    .secondaryMenu {
+        background:  mat-color($primary, 600); 
+        transition: max-height .4s cubic-bezier(.35, 0, .25, 1);  
+        padding-top: 0px !important;
+        
+    }
+    .secondaryMenu:hover{
+        background:rgba(65, 101, 221, 0.6) !important; 
+    }
+
+    .child-menu-color.active{
+        background:rgba(65, 101, 221, 0.6) !important; 
+    }
+
+    .child-menu-color {
+        color:  white !important; 
+    }
+    
+
+    .mat-nav-list .mat-list-item .mat-list-icon{
+        @include mat-list-icon($icon-size);
+    }
+    .mat-chip:not(.mat-basic-chip){
+        @include mat-chip()
+    }
+    .mat-nav-list .mat-list-item {
+        font-size: 14px;
+    }
+    
+}
+

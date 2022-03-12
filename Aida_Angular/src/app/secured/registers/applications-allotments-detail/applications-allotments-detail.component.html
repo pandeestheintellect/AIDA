@@ -1,0 +1,91 @@
+
+<div mat-dialog-content class="app-dialog">
+    <h2 >{{action}} Applications and Allotments</h2>
+        <ng-template [ngIf]="action != 'Delete'" [ngIfElse]="delete">
+
+            <div fxLayout="row wrap" class="edit-section">
+
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="80%">
+                    <mat-label>Member</mat-label>
+                        <mat-select  name="memberList" [(ngModel)]="localData.officerId">
+                            <mat-option *ngFor="let type of memberList" [value]="type.value"> 
+                                {{type.text}}
+                            </mat-option>
+                        </mat-select>
+                </mat-form-field>
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                    <mat-label>Identity Type</mat-label>
+                        <mat-select  name="identityTypeList" [(ngModel)]="localData.identityType">
+                            <mat-option *ngFor="let type of identityTypeList" [value]="type.value"> 
+                                {{type.text}}
+                            </mat-option>
+                        </mat-select>
+                </mat-form-field>
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%"> 
+                    <mat-label>Date of Application</mat-label>
+                        <input matInput [matDatepicker]="applicationDate" [(ngModel)]="localData.applicationDate" >
+                        <mat-datepicker-toggle matSuffix [for]="applicationDate"></mat-datepicker-toggle>
+                        <mat-datepicker #applicationDate></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                    <mat-label>Date of Allotment</mat-label>
+                        <input matInput [matDatepicker]="allotmentDate" [(ngModel)]="localData.allotmentDate" >
+                        <mat-datepicker-toggle matSuffix [for]="allotmentDate"></mat-datepicker-toggle>
+                        <mat-datepicker #allotmentDate></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                    <mat-label>Allotment No
+                        </mat-label><input matInput [(ngModel)]="localData.allotmentNo">
+                </mat-form-field> 
+                
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                    <mat-label>Applied
+                        </mat-label><input matInput [(ngModel)]="localData.applied">
+                </mat-form-field> 
+                
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                    <mat-label>Alloted 
+                        </mat-label><input matInput [(ngModel)]="localData.allotted">
+                </mat-form-field> 
+
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                    <mat-label>Price
+                        </mat-label><input matInput [(ngModel)]="localData.price">
+                </mat-form-field> 
+                
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                    <mat-label>Amount called
+                        </mat-label><input matInput [(ngModel)]="localData.amountCalled">
+                </mat-form-field> 
+                
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                    <mat-label>Amount paid
+                        </mat-label><input matInput [(ngModel)]="localData.amountPaid">
+                </mat-form-field> 
+
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                    <mat-label>Certificate No
+                        </mat-label><input matInput [(ngModel)]="localData.certificateNo">
+                </mat-form-field> 
+                
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                    <mat-label>Folio No
+                        </mat-label><input matInput [(ngModel)]="localData.folioNo">
+                </mat-form-field> 
+                
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="100%">
+                    <mat-label>Allotted for consideration other than cash </mat-label>
+                        <textarea matInput [(ngModel)]="localData.consideration"></textarea>
+                </mat-form-field> 
+            </div>
+              
+        </ng-template>
+        <ng-template #delete>
+            Sure to delete  
+        </ng-template>
+</div>
+<div mat-dialog-actions style="justify-content: flex-end;">
+    <button mat-button (click)="OnOK()"    mat-flat-button color="primary">{{action}}</button>
+    <button mat-button (click)="OnClose()" mat-flat-button color="warn">Cancel</button>
+</div>

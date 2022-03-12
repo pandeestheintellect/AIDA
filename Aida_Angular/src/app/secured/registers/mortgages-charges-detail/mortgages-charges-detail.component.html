@@ -1,0 +1,65 @@
+
+<div mat-dialog-content class="app-dialog">
+    <h2 >{{action}} Register of Mortgages and Charges</h2>
+        <ng-template [ngIf]="action != 'Delete'" [ngIfElse]="delete">
+
+            <div fxLayout="row wrap" class="edit-section">
+
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="75%">
+                    <mat-label>Name</mat-label>
+                    <input matInput [(ngModel)]="localData.name">
+                </mat-form-field> 
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%"> 
+                    <mat-label>Date of Entry</mat-label>
+                        <input matInput [matDatepicker]="entryDate" [(ngModel)]="localData.entryDate" >
+                        <mat-datepicker-toggle matSuffix [for]="entryDate"></mat-datepicker-toggle>
+                        <mat-datepicker #entryDate></mat-datepicker>
+                </mat-form-field>
+                 
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="100%">
+                    <mat-label>Address</mat-label>
+                    <textarea matInput [(ngModel)]="localData.address"></textarea>
+                </mat-form-field> 
+
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                    <mat-label>Amount of the charge</mat-label>
+                    <input matInput [(ngModel)]="localData.amount">
+                </mat-form-field> 
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                    <mat-label>Date of Registrar</mat-label>
+                        <input matInput [matDatepicker]="registrarDate" [(ngModel)]="localData.registrarDate" >
+                        <mat-datepicker-toggle matSuffix [for]="registrarDate"></mat-datepicker-toggle>
+                        <mat-datepicker #registrarDate></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                    <mat-label>No. of Certificate</mat-label>
+                    <input matInput [(ngModel)]="localData.noOfCertificate">
+                </mat-form-field>
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                    <mat-label>Date of Discharge</mat-label>
+                        <input matInput [matDatepicker]="dischargeDate" [(ngModel)]="localData.dischargeDate" >
+                        <mat-datepicker-toggle matSuffix [for]="dischargeDate"></mat-datepicker-toggle>
+                        <mat-datepicker #dischargeDate></mat-datepicker>
+                </mat-form-field>
+    
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="50%">
+                    <mat-label>Short Description </mat-label>
+                    <textarea matInput [(ngModel)]="localData.shortDescription"></textarea>
+                </mat-form-field> 
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="50%">
+                    <mat-label>Remarks</mat-label>
+                    <textarea matInput [(ngModel)]="localData.remarks"></textarea>
+                </mat-form-field> 
+    
+    
+            </div>
+              
+        </ng-template>
+        <ng-template #delete>
+            Sure to delete  
+        </ng-template>
+</div>
+<div mat-dialog-actions style="justify-content: flex-end;">
+    <button mat-button (click)="OnOK()"    mat-flat-button color="primary">{{action}}</button>
+    <button mat-button (click)="OnClose()" mat-flat-button color="warn">Cancel</button>
+</div>

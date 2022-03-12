@@ -1,0 +1,136 @@
+
+<div class="app-dialog" mat-dialog-content>
+    <h2 >{{action}} Client Profiles Details</h2>
+    <ng-template [ngIf]="action != 'Delete'" [ngIfElse]="delete">
+        <div fxLayout="row wrap" class="edit-section">
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="27%">
+                <mat-label>Name</mat-label><input matInput [(ngModel)]="localData.name">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="27%">
+                <mat-label>Former Name (if any)</mat-label><input matInput [(ngModel)]="localData.formerName">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="27%">
+                <mat-label>Trading Name</mat-label><input matInput [(ngModel)]="localData.tradingName">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="19%">
+                <mat-label>Type</mat-label>
+                    <mat-select [(ngModel)]="localData.clientType" name="clientTypes">
+                        <mat-option *ngFor="let type of clientTypes" [value]="type.value">
+                            {{type.text}}
+                        </mat-option>
+                    </mat-select>
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <br>
+                <mat-label>UEN</mat-label><input matInput [(ngModel)]="localData.uen">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <br>
+                <mat-label>Incorp. Date</mat-label>
+                    <input matInput [matDatepicker]="incorpDate" [(ngModel)]="localData.incorpDate">
+                    <mat-datepicker-toggle matSuffix [for]="incorpDate"></mat-datepicker-toggle>
+                    <mat-datepicker #incorpDate></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="40%">
+                <mat-label>Address</mat-label>
+                <textarea matInput [(ngModel)]="localData.address1" rows=2></textarea>
+            </mat-form-field>
+            
+             <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                 <br>
+                <mat-label>City</mat-label><input matInput [(ngModel)]="localData.city">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <mat-label>Country</mat-label><input matInput [(ngModel)]="localData.country">
+            </mat-form-field>
+
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <mat-label>Postal code</mat-label><input matInput [(ngModel)]="localData.pincode">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <mat-label>Phone</mat-label><input matInput [(ngModel)]="localData.phone">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <mat-label>Mobile</mat-label><input matInput [(ngModel)]="localData.mobile">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <mat-label>Email</mat-label><input matInput [(ngModel)]="localData.email">
+            </mat-form-field>
+
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <mat-label>Industrial Classification</mat-label>
+                    <mat-select [(ngModel)]="localData.industryType" name=" industryTypes">
+                        <mat-option *ngFor="let type of industryTypes" [value]="type.value">
+                            {{type.text}}
+                        </mat-option>
+                    </mat-select>
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <mat-label>Status</mat-label>
+                    <mat-select [(ngModel)]="localData.status" name="activeStatus">
+                        <mat-option *ngFor="let type of activeStatus" [value]="type.value">
+                            {{type.text}}
+                        </mat-option>
+                    </mat-select>
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                <mat-label>Last Updated</mat-label>
+                    <input matInput [matDatepicker]="statusDate" [(ngModel)]="localData.statusDate">
+                    <mat-datepicker-toggle matSuffix [for]="statusDate"></mat-datepicker-toggle>
+                    <mat-datepicker #statusDate></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="40%">
+                <mat-label>Nature of Business</mat-label><input matInput [(ngModel)]="localData.nature">
+            </mat-form-field>
+        </div>
+        
+        <div fxLayout="row wrap" class="edit-section">
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                <mat-label>Issues Shared Capital
+                </mat-label><input matInput [(ngModel)]="localData.issuedCapital" (blur)="transformAmount($event)">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                <mat-label>Number of Shares
+                </mat-label><input matInput [(ngModel)]="localData.issuedShares" (blur)="transformAmount($event)">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                <mat-label>Currency
+                </mat-label><input matInput [(ngModel)]="localData.issuedCurrency">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                <mat-label>Share Type
+                </mat-label><input matInput [(ngModel)]="localData.issuedShareType">
+            </mat-form-field>
+        </div>
+
+        
+        <div fxLayout="row wrap" class="edit-section">
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                <mat-label>Paid-up capital 
+                </mat-label><input matInput [(ngModel)]="localData.paidupCapital" (blur)="transformAmount($event)">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                <mat-label>Number of Shares
+                </mat-label><input matInput [(ngModel)]="localData.paidupShares" (blur)="transformAmount($event)">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                <mat-label>Currency
+                </mat-label><input matInput [(ngModel)]="localData.paidupCurrency">
+            </mat-form-field>
+            <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                <mat-label>Share Type
+                </mat-label><input matInput [(ngModel)]="localData.paidupShareType">
+            </mat-form-field>
+        </div>
+
+    </ng-template>
+    <ng-template #delete>
+        Sure to delete <b>{{localData.companyName}}</b>
+    </ng-template>
+</div>
+<div mat-dialog-actions style="justify-content: flex-end;">
+    <button mat-button (click)="OnImport()"    mat-flat-button color="primary">Import</button>
+    <button mat-button (click)="OnOK()"    mat-flat-button color="primary">Ok</button>
+    <button mat-button (click)="OnClose()" mat-flat-button color="warn">Cancel</button>
+</div>

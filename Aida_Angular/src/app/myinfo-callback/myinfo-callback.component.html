@@ -1,0 +1,20 @@
+<mat-toolbar class="main-toolbar">
+    
+    <span class="spacer"></span>
+    Details received from MyInfo
+  </mat-toolbar>
+  
+  
+  <div class="mat-elevation-z4 app-page" style="font-size: 22px;padding: 20px;">
+    
+    <div *ngFor="let field of myinfoData;" fxLayout="row wrap"  fxLayoutGap="20px" fxLayoutAlign="center center" style="padding: 10px;">
+      <div fxFlex="15" style="font-size:18px;">{{field.text}}</div>
+      <div fxFlex="78" style="font-size:16px;">: {{field.value}}</div>
+    </div>
+
+  </div>
+  <div mat-dialog-actions style="justify-content: flex-end;" style="margin-left: 20px; margin-bottom: 30px;">
+    <button mat-button (click)="OnOK()"    mat-flat-button color="primary" *ngIf="dataSubmited===false">Submit</button>
+    <button mat-button (click)="OnClose()" mat-flat-button color="warn" *ngIf="dataSubmited===false">Cancel</button>
+    <button mat-button (click)="OnClose()" mat-flat-button color="warn" *ngIf="dataSubmited===true">Close</button>
+</div>

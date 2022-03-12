@@ -1,0 +1,43 @@
+<div class="app-dialog" mat-dialog-content>
+    <h2 >Business Officers Details</h2>
+    <div fxLayout="row wrap" class="edit-section">
+        <div fxFlex="auto" fxFlex.gt-sm="50%" style="padding: 20px;">
+            
+            <img src='/assets/singpass-logo.png' width="234px" style="align-self: center;">
+            <h3 >Fill the details using MyInfo</h3>
+            You can fill the detail using MyInfo via SignPass login.
+            Applicable for Singapore Citizen, Singapore Premenant Resident and FIN Holders
+            
+        </div>
+        <div fxFlex="auto" fxFlex.gt-sm="50%" style="padding: 20px;">
+            <h3 >Fill the details using our form online</h3>
+            You can fill the detail online in our form.
+           
+        </div>
+
+        <div fxFlex="auto" fxFlex.gt-sm="50%" style="padding: 20px;">
+            
+                <img src='/assets/myinfo-button-Inline.png' width="318px" (click)="OnAction('MyInfo')"  style="text-align: center; width: 90%;">
+            <br><br>
+            <div style="display: flex;flex-direction: row;">
+                <mat-form-field>
+                    <mat-label>Email</mat-label><input matInput [(ngModel)]="email">
+                </mat-form-field>
+            <button mat-button (click)="OnAction('Email')" mat-flat-button color="primary" style="text-align: center; width: 80px;height: 36px;">
+                Invite </button>
+            </div>
+            <br><br>
+            - No supporting document required
+            <br><br>
+            <div style="color: red;">{{note}}</div>
+        </div>
+        <div fxFlex="auto" fxFlex.gt-sm="50%" style="padding: 20px;">
+            
+            <button mat-button (click)="OnAction('Form')" mat-flat-button color="primary" style="text-align: center; width: 80%;;height: 45px;">
+                Apply using our form </button>
+        </div>
+    </div>
+</div>
+<div mat-dialog-actions style="justify-content: flex-end;">
+    <button mat-button (click)="OnAction('Cancel')" mat-flat-button color="warn">Cancel</button>
+</div>    

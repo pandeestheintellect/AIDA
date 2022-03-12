@@ -1,0 +1,77 @@
+<div class="mat-elevation-z4 app-page">
+
+    <mat-toolbar class="page-toolbar">
+        <h2 class="mat-headline center-align" style="margin-left: 20px;">Client View</h2>
+        <span class="header-spacer"></span>
+        <div  fxLayout="row"  style="margin-top: 20px;">
+            <mat-form-field style="width: 250px; font-size: 14px !important;">
+                <mat-label>Choose Client Profile</mat-label>
+                <mat-select [(ngModel)]="clientProfileId" name="clientProfileName" (selectionChange)="onProfileChange($event)">
+                    <mat-option *ngFor="let type of clientProfileList" [value]="type.value">{{type.text}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+         
+        </div> 
+    </mat-toolbar>
+
+    <mat-card *ngIf="showDetail==true">
+        <mat-card-content>
+          <div fxLayout="row wrap" class="edit-section">
+            <div fxFlex="auto" fxFlex.gt-sm="100%" >
+                 <app-card-client-profile #clientProfileSummary [clientProfileId]="clientProfileId"></app-card-client-profile>              
+            </div>
+            <div fxFlex="auto" fxFlex.gt-sm="100%" fxLayoutGap="10px"  style="padding: 20px;margin-top: -35px !important;" > 
+                <button mat-button mat-flat-button color="primary" fxFlex="auto" fxFlex.gt-sm="17%"matTooltip="Services" 
+                    matTooltipClass="snackBarBackgroundColor" [matMenuTriggerFor]="appMenuServices">
+                    Secretarial
+                </button>
+                <mat-menu #appMenuServices="matMenu">
+                    <button mat-menu-item (click)="OnServices('post-registration')">Post Registraion</button>
+                    <button mat-menu-item (click)="OnServices('agm-ar')">AGM AR</button>
+                    <button mat-menu-item (click)="OnServices('change-resolution')">Change Resolution</button>
+                    <button mat-menu-item (click)="OnServices('appointment')">Appointment</button>
+                    <button mat-menu-item (click)="OnServices('resignation')">Resignation</button>
+                    <button mat-menu-item (click)="OnServices('share-capital')">Share Capital</button>
+                    <button mat-menu-item (click)="OnServices('strike-off')">Strike Off</button>
+                    <button mat-menu-item (click)="OnServices('accounting')">Accounting</button>
+                </mat-menu>
+
+                <button mat-button mat-flat-button color="primary" fxFlex="auto" fxFlex.gt-sm="17%"matTooltip="Manage Statutory Register" 
+                    matTooltipClass="snackBarBackgroundColor" [matMenuTriggerFor]="appMenuRegister">
+                    Registers
+                </button>
+                <mat-menu #appMenuRegister="matMenu">
+                    <button mat-menu-item (click)="OnRegister('applications-allotments')">1. Applications and Allotments</button>
+                    <button mat-menu-item (click)="OnRegister('members')">2. Members</button>
+                    <button mat-menu-item (click)="OnRegister('transfers')">3. Transfers</button>
+                    <button mat-menu-item (click)="OnRegister('officers/directors')">4. Directors</button>
+                    <button mat-menu-item (click)="OnRegister('officers/managing-directors')">5. Managing Directors</button>
+                    <button mat-menu-item (click)="OnRegister('officers/secretaries')">6. Secretaries</button>
+                    <button mat-menu-item (click)="OnRegister('auditors')">7. Auditors</button>
+                    <button mat-menu-item (click)="OnRegister('directors-shareholdings')">8. Director's Shareholdings</button>
+                    <button mat-menu-item (click)="OnRegister('mortgages-charges')">10. Mortgages and Charges</button>
+                    <button mat-menu-item (click)="OnRegister('officers/controllers-individuals')">11. Registrable Controllers (Individuals)</button>
+                    <button mat-menu-item (click)="OnRegister('controllers-corporate')">12. Registrable Controllers (Entities)</button>
+                    <button mat-menu-item (click)="OnRegister('nominee-nominators')">13. Nominee Directors & Nominators</button>
+                </mat-menu>
+                  <button mat-button mat-flat-button color="primary" fxFlex="auto" fxFlex.gt-sm="17%"matTooltip="Manage documents" 
+                        matTooltipClass="snackBarBackgroundColor" [matMenuTriggerFor]="appMenu">
+                        Documents
+                    </button>
+                    <mat-menu #appMenu="matMenu">
+                        <button mat-menu-item (click)="OnDownload(1)">Upload Documents</button>
+                        <button mat-menu-item (click)="OnDownload(2)">View Uploaded Documents</button>
+                        <button mat-menu-item (click)="OnDownload(3)">Signed Documents</button>
+                        </mat-menu>
+
+            </div>
+            <div fxFlex="auto" fxFlex.gt-sm="60%" style="padding: 20px;margin-top: -25px !important;" >
+                
+                <app-card-client-services #clientProfileServices [clientProfileId]="clientProfileId"></app-card-client-services>  <br><br>            
+           </div>
+          </div>
+        </mat-card-content>
+ 
+      </mat-card>
+
+</div>

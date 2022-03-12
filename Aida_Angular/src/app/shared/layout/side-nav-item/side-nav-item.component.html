@@ -1,0 +1,19 @@
+
+<mat-nav-list [style.maxHeight]="(menu.open)?'1200px':'48px'"  [ngClass]="{'secondaryMenu': secondaryMenu, 'primary': !secondaryMenu}">
+    <mat-list-item *ngIf = "menu.link=='false'" (click)="menu.open = !menu.open" [ngClass]="menu.color" [routerLinkActive]="['active']">
+        <fa-icon matListIcon iconsmall [icon]="menu.icon"></fa-icon>
+        <h3 matLine *ngIf="!iconOnly">{{ menu.name }} </h3>
+        <mat-chip-list *ngIf="menu?.chip && !iconOnly">
+            <mat-chip >{{menu?.chip?.value}} </mat-chip>
+        </mat-chip-list>        
+        <fa-icon *ngIf="chechForChildMenu()" class="sidenav-dropdown-indicator rotate "  [ngClass]="{'indicateOpen':menu.open}" [icon]="['fas', 'chevron-down']"></fa-icon>
+    </mat-list-item>
+
+    <mat-list-item *ngIf = "menu.link!='false'" (click)="menu.open = !menu.open" [routerLink]="[menu.link]" [ngClass]="menu.color" [routerLinkActive]="['active']">
+    	<fa-icon matListIcon iconsmall [icon]="menu.icon"></fa-icon>
+        <h3 matLine *ngIf="!iconOnly">{{ menu.name }} </h3>
+    </mat-list-item>
+
+    <app-side-nav-item *ngFor="let submenu of menu?.sub" [menu]="submenu" [iconOnly]="iconOnly" [secondaryMenu]="true" [routerLinkActive]="['active']"> </app-side-nav-item>
+
+</mat-nav-list>

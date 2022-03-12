@@ -1,0 +1,133 @@
+
+<div mat-dialog-content class="app-dialog">
+    <h2 >{{action}} Employee Details</h2>
+        <ng-template [ngIf]="action != 'Delete'" [ngIfElse]="delete">
+
+            <mat-tab-group dynamicHeight>
+                <mat-tab label="Personal Information">
+                    <div fxLayout="row wrap" class="edit-section">
+                        <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                            <mat-label>Employee Id</mat-label><input matInput disabled [(ngModel)]="localData.code">
+                        </mat-form-field>
+                        <mat-form-field fxFlex="auto" fxFlex.gt-sm="40%">
+                            <mat-label>First Name</mat-label><input matInput [(ngModel)]="localData.firstName">
+                        </mat-form-field>
+                        <mat-form-field fxFlex="auto" fxFlex.gt-sm="40%">
+                            <mat-label>Last Name</mat-label><input matInput [(ngModel)]="localData.lastName">
+                        </mat-form-field> 
+
+                        <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                            <mat-label>Nationality</mat-label><input matInput [(ngModel)]="localData.nationality">
+                        </mat-form-field>
+                        <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                            <mat-label>Date of Birth</mat-label>
+                                <input matInput [matDatepicker]="birthDate" [(ngModel)]="localData.birthDate">
+                                <mat-datepicker-toggle matSuffix [for]="birthDate"></mat-datepicker-toggle>
+                                <mat-datepicker #birthDate></mat-datepicker>
+                        </mat-form-field>
+                        
+                        <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                            <mat-label>Gender</mat-label>
+                                <mat-select [(ngModel)]="localData.gender" name="genderList">
+                                    <mat-option *ngFor="let type of genderList" [value]="type.value">
+                                        {{type.text}}
+                                    </mat-option>
+                                </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                            <mat-label>Identity Type</mat-label>
+                            <mat-select [(ngModel)]="localData.cardType" name="identityType">
+                                <mat-option *ngFor="let type of identityType" [value]="type.value">
+                                    {{type.text}}
+                                </mat-option>
+                            </mat-select>
+                            
+                        </mat-form-field>
+
+                        <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                            <mat-label>Identity No</mat-label><input matInput [(ngModel)]="localData.cardNumber">
+                        </mat-form-field>
+
+                    </div>
+                </mat-tab>
+                <mat-tab label="Position & Role Information">
+                    <div fxLayout="row wrap" class="edit-section">
+                        
+                        <div fxFlex="auto" fxFlex.gt-sm="40%" style="height: 230px;border: 1px solid gray; margin-right: 20px;">
+                            <div style="text-align: center;margin: 10px;"><h2>Positions</h2></div>
+                            <mat-selection-list #positionListing [(ngModel)]="positionListSelected" [compareWith]="compareFunction" style="max-height: 200px;overflow: auto;">
+                                <mat-list-option *ngFor="let position of positionList" [value]="position">
+                                  {{position.value}}
+                                </mat-list-option>
+                              </mat-selection-list>
+                        </div>
+                        <div fxFlex="auto" fxFlex.gt-sm="40%" style="height: 230px;border: 1px solid gray;">
+                            <div style="text-align: center;margin: 10px;"><h2>Roles</h2></div>
+                            <mat-selection-list #roleListing [(ngModel)]="roleListSelected" [compareWith]="compareFunction" style="max-height: 200px;overflow: auto;">
+                                <mat-list-option *ngFor="let role of roleList" [value]="role">
+                                  {{role.text}}
+                                </mat-list-option>
+                              </mat-selection-list>
+                        </div>
+
+                    </div>
+                </mat-tab>
+                <mat-tab label="Contact Information">
+                    <div fxLayout="row wrap" class="edit-section">
+                        <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                            <mat-label>Address 1</mat-label><input matInput [(ngModel)]="localData.address1">
+                        </mat-form-field>
+                        <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                            <mat-label>Address 2</mat-label><input matInput [(ngModel)]="localData.address2">
+                        </mat-form-field>
+                        <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                            <mat-label>City</mat-label><input matInput [(ngModel)]="localData.city">
+                        </mat-form-field>
+                        <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                            <mat-label>Country</mat-label><input matInput [(ngModel)]="localData.country">
+                        </mat-form-field>
+
+                        <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                            <mat-label>Postal code</mat-label><input matInput [(ngModel)]="localData.pincode">
+                        </mat-form-field>
+                        <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                            <mat-label>Phone</mat-label><input matInput [(ngModel)]="localData.phone">
+                        </mat-form-field>
+                        <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                            <mat-label>Mobile</mat-label><input matInput [(ngModel)]="localData.mobile">
+                        </mat-form-field>
+                        <mat-form-field fxFlex="auto" fxFlex.gt-sm="25%">
+                            <mat-label>Email</mat-label><input matInput [(ngModel)]="localData.email">
+                        </mat-form-field>
+
+
+                    </div>
+                </mat-tab>
+                <mat-tab label="Login Information">
+                    <div fxLayout="row wrap" class="edit-section">
+                        
+                        <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                            <mat-label>Login Role</mat-label>
+                                <mat-select [(ngModel)]="localData.loginRole" name="loginRoleList">
+                                    <mat-option *ngFor="let type of loginRoleList" [value]="type.value">
+                                        {{type.text}}
+                                    </mat-option>
+                                </mat-select>
+                        </mat-form-field>
+                        <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                            <mat-label>Password</mat-label><input type="password" matInput [(ngModel)]="localData.userpassword">
+                        </mat-form-field>
+
+                    </div>
+                </mat-tab>
+            </mat-tab-group>                
+        </ng-template>
+        <ng-template #delete>
+            Sure to delete employee <b>{{localData.firstName}} {{localData.lastName}}</b>
+        </ng-template>
+</div>
+<div mat-dialog-actions style="justify-content: flex-end;">
+    <button mat-button (click)="OnOK()"    mat-flat-button color="primary">Ok</button>
+    <button mat-button (click)="OnClose()" mat-flat-button color="warn">Cancel</button>
+</div>

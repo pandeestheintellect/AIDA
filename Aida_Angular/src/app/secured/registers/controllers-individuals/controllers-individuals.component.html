@@ -1,0 +1,61 @@
+
+<div mat-dialog-content class="app-dialog">
+    <h2 >{{action}} Register of Registrable Controllers (For Individuals)</h2>
+        <ng-template [ngIf]="action != 'Delete'" [ngIfElse]="delete">
+
+            <div fxLayout="row wrap" class="edit-section">
+
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="80%">
+                    <mat-label>Registrable Controller</mat-label>
+                        <mat-select  name="memberList" [(ngModel)]="localData.officerId">
+                            <mat-option *ngFor="let type of memberList" [value]="type.value"> 
+                                {{type.text}}
+                            </mat-option>
+                        </mat-select>
+                </mat-form-field>
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="20%">
+                    <mat-label>Identity Type</mat-label>
+                        <mat-select  name="identityTypeList" [(ngModel)]="localData.identityType">
+                            <mat-option *ngFor="let type of identityTypeList" [value]="type.value"> 
+                                {{type.text}}
+                            </mat-option>
+                        </mat-select>
+                </mat-form-field>
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="30%"> 
+                    <mat-label>Date of Entry</mat-label>
+                        <input matInput [matDatepicker]="entryDate" [(ngModel)]="localData.entryDate" >
+                        <mat-datepicker-toggle matSuffix [for]="entryDate"></mat-datepicker-toggle>
+                        <mat-datepicker #entryDate></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="30%">
+                    <mat-label>Date of Becoming Controller</mat-label>
+                        <input matInput [matDatepicker]="startDate" [(ngModel)]="localData.startDate" >
+                        <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                        <mat-datepicker #startDate></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="30%">
+                    <mat-label>Date of Cessation as Controller</mat-label>
+                        <input matInput [matDatepicker]="cessationDate" [(ngModel)]="localData.cessationDate" >
+                        <mat-datepicker-toggle matSuffix [for]="cessationDate"></mat-datepicker-toggle>
+                        <mat-datepicker #cessationDate></mat-datepicker>
+                </mat-form-field>
+                
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="50%">
+                    <mat-label>Notice Sent On</mat-label>
+                    <textarea matInput [(ngModel)]="localData.remarks1"></textarea>
+                </mat-form-field> 
+                <mat-form-field fxFlex="auto" fxFlex.gt-sm="50%">
+                    <mat-label>Confirmation Received On </mat-label>
+                    <textarea matInput [(ngModel)]="localData.remarks2"></textarea>
+                </mat-form-field> 
+            </div>
+              
+        </ng-template>
+        <ng-template #delete>
+            Sure to delete  
+        </ng-template>
+</div>
+<div mat-dialog-actions style="justify-content: flex-end;">
+    <button mat-button (click)="OnOK()"    mat-flat-button color="primary">{{action}}</button>
+    <button mat-button (click)="OnClose()" mat-flat-button color="warn">Cancel</button>
+</div>

@@ -1,0 +1,31 @@
+<div mat-dialog-content class="app-dialog">
+    <h2 >Upload documents</h2>
+    <div fxLayout="row wrap" class="edit-section">
+        <div fxFlex="auto" fxFlex.gt-sm="70%">
+            <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)" style="display:none;" >
+            <mat-form-field fxFlex="auto">
+                <mat-label>Document Type</mat-label>
+                    <mat-select [(ngModel)]="fileType" name=" fileList">
+                        <mat-option *ngFor="let type of fileList" [value]="type.value">
+                            {{type.text}}
+                        </mat-option>
+                    </mat-select>
+            </mat-form-field>
+        </div>
+        <div fxFlex="auto" fxFlex.gt-sm="18%">
+            <button mat-button (click)="file.click()" mat-flat-button color="primary">Upload</button>
+        </div>
+        <div fxFlex="auto" fxFlex.gt-sm="99%">
+            <span class="upload" *ngIf="progress > 0">
+              {{progress}}%
+            </span>
+            <span class="upload" *ngIf="message">
+              {{message}}
+            </span>
+          </div>
+    </div>
+</div>
+<div mat-dialog-actions style="justify-content: flex-end;">
+  
+    <button mat-button (click)="OnClose()" mat-flat-button color="warn">Close</button>
+</div>

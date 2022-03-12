@@ -1,0 +1,63 @@
+@import '~@angular/material/theming';
+
+@import './app-theme';
+
+@import '../app/shared/layout/layout.component.scss';
+@import '../app/shared/layout/side-nav-item/side-nav-item.component.scss';
+@import '../app/shared/layout/top-nav/top-nav.component.scss';
+
+$custom-typography: mat-typography-config(
+    $headline: mat-typography-level(32px, 48px, 700),
+    $body-1: mat-typography-level(16px, 24px, 500)
+);
+@include angular-material-typography($custom-typography);
+
+$mat-light-theme-background: (
+  status-bar: map_get($mat-grey, 300),
+  app-bar:    map_get($mat-grey, 100),
+  background: map_get($mat-indigo, 50),
+  hover:      rgba(black, 0.04), // TODO(kara): check style with Material Design UX
+  card:       white,
+  dialog:     white,
+  disabled-button: $black-12-opacity,
+  raised-button: white,
+  focused-button: $black-6-opacity,
+  selected-button: map_get($mat-grey, 300),
+  selected-disabled-button: map_get($mat-grey, 400),
+  disabled-button-toggle: map_get($mat-grey, 200),
+  unselected-chip: map_get($mat-grey, 300),
+  disabled-list-option: map_get($mat-grey, 200),
+);
+
+
+@include mat-core();
+
+$my-app-primary: mat-palette($mat-indigo,700);
+$my-app-accent:  mat-palette($mat-teal, 500, 900, A100);
+$my-app-warn:    mat-palette($mat-red, 500, 900, A100);
+
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
+
+@mixin custom-theme($theme) {
+  @include app-theme($theme);
+  @include layout($theme);
+  @include top-nav($theme);
+  @include sidemenu-item($theme,20px)
+}
+
+
+@include angular-material-theme($my-app-theme);
+@include custom-theme($my-app-theme);
+
+/*
+.alternate-theme {
+  $alternate-primary: mat-palette($mat-light-blue);
+  $alternate-accent:  mat-palette($mat-yellow, 400);
+
+  $alternate-theme: mat-light-theme($alternate-primary, $alternate-accent);
+
+  @include angular-material-theme($alternate-theme);
+  @include custom-theme($alternate-theme);
+}
+*/
+

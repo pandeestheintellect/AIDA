@@ -1,0 +1,61 @@
+<div class="mat-elevation-z4 app-page">
+    <mat-toolbar class="page-toolbar">
+        <h1 class="mat-headline center-align" style="margin-left: 20px;" >{{pageTitle}}</h1>
+        <span class="header-spacer"></span>
+        <span *ngIf="currentStep>=0">Step {{currentStep+1}} of {{steps.length}} </span>
+    </mat-toolbar>
+  
+    <div class="page-sub-header"> <h3 style="text-align:left;float:left; margin-top: 10px;">{{stepRole}}</h3> 
+            <h3 style="text-align:right;float:right;margin-top: 10px;">{{stepName}}</h3></div>
+  
+    <div>
+      <mat-horizontal-stepper #stepper (selectionChange)="OnStepChange($event)">
+            <mat-step *ngFor="let step of steps; let index = index; let last = last;">
+                <dynamic-form #dynaForm [fields]="step.fields" (submit)="OnSubmit($event)"></dynamic-form>
+                
+            </mat-step>
+        </mat-horizontal-stepper>
+    </div>
+    <div fxLayout="row wrap" fxLayoutGap="10px" class="footer-toolbar" >
+        
+        
+        <mat-menu #appMenu="matMenu">
+            <button mat-menu-item (click)="OnDownload(1)" >PDF</button>
+            <button mat-menu-item (click)="OnDownload(2)">Editable PDF</button>
+          </mat-menu>
+          <div fxLayout="row wrap" fxLayoutGap="4px" class="footer-toolbar"  fxFlex="auto" fxFlex.gt-sm="63%" >
+          <button mat-button mat-flat-button fxFlex="auto" fxFlex.gt-sm="17%" (click)="OnImport()" color="primary" *ngIf="importVisible" [disabled]="isDocumentOpening==true">Import</button>  
+        <button mat-button mat-flat-button fxFlex="auto" fxFlex.gt-sm="17%" (click)="OnFill()" color="primary" *ngIf="fillVisible" [disabled]="isDocumentOpening==true">Fill Form</button>  
+        <!--
+            <span class="spacer" fxFlex="auto" fxFlex.gt-sm="4%"></span> 
+        <button mat-button mat-flat-button (click)="OnPreview()" *ngIf="currentStep>=0" color="accent">Preview</button>
+        -->
+        <button mat-button mat-flat-button fxFlex="auto" fxFlex.gt-sm="17%" [matMenuTriggerFor]="appMenu" [disabled]="isDocumentOpening==true" color="primary">Download</button>
+        <button mat-button mat-flat-button fxFlex="auto" fxFlex.gt-sm="17%" (click)="OnPrevious()" [disabled]="currentStep==0||isDocumentOpening==true" color="primary">Previous</button>
+        <!--
+        <button mat-button mat-flat-button (click)="OnNext()"  [disabled]="currentStep==steps.length-1" color="primary">{{nextCaption}}</button>    
+        -->
+        <button mat-button mat-flat-button fxFlex="auto" fxFlex.gt-sm="17%" (click)="OnNext()" [disabled]="isDocumentOpening==true"  color="primary">{{nextCaption}}</button>
+    </div>
+
+    <div fxLayout="row wrap" fxLayoutGap="4px" class="footer-toolbar"  fxFlex="auto" fxFlex.gt-sm="35%" fxLayoutAlign="end start">
+        <button mat-button mat-flat-button fxFlex="auto" fxFlex.gt-sm="26%"  (click)="OnAction(1)" *ngIf="action1Visible" color="primary">{{action1Caption}}</button> 
+        <button mat-button mat-flat-button fxFlex="auto" fxFlex.gt-sm="26%" (click)="OnAction(2)" *ngIf="action2Visible" color="primary">{{action2Caption}}</button>
+        <button mat-button mat-flat-button fxFlex="auto" fxFlex.gt-sm="26%" (click)="OnAction(3)" *ngIf="action3Visible" color="warn">Terminate</button>
+    </div>
+
+    </div>
+    
+
+    <div style="height:100vh; width:100%;background-color:rgba(0, 0, 0, 0.286); z-index:    10;
+    top:        0;   left:       0;   position:   fixed;" *ngIf="isDocumentOpening">
+        <div style="position: absolute; top: 50%; left: 50%; -moz-transform: translateX(-50%) translateY(-50%); -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);">
+            <mat-progress-spinner diameter=50 
+                              mode="indeterminate"
+                              >
+            </mat-progress-spinner> 
+        </div>
+    </div>
+
+</div>

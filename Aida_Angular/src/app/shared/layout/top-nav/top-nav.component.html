@@ -1,0 +1,20 @@
+<mat-toolbar class="main-toolbar">
+  <button mat-icon-button (click)="onBack()">
+    <fa-icon [icon]="['fas', 'caret-left']" style="font-size: 28px;"></fa-icon>
+  </button>
+  <button mat-icon-button (click)="sidenav.toggle();drawer.toggle();" *ngIf="matDrawerShow">
+    <i class="material-icons app-toolbar-menu">menu </i>
+  </button> 
+  <button mat-icon-button (click)="sidenav.toggle();" *ngIf="!matDrawerShow">
+    <i class="material-icons app-toolbar-menu">menu </i>
+  </button>
+
+  <span class="spacer"></span>
+  
+
+  <span>{{username}}</span>
+  <button mat-icon-button (click)="onLoggedout()">
+    <fa-icon [icon]="['fas', 'sign-out-alt']" style="font-size: 20px;"></fa-icon>
+  </button>
+</mat-toolbar>
+  

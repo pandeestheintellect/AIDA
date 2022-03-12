@@ -1,0 +1,95 @@
+.body { font-family:Calibri;font-size:16px;width:188mm;text-align:justify;}
+.onleft {float: left;}
+.onright {float: right;}
+.oncenter {float: center;}
+
+.righttext {text-align:right}
+.centertext {text-align:center}
+.justifytext {text-align:justify}
+.para-start {text-indent: 2em;}
+.address {height: 160px;}
+.marginbottom {margin-bottom:20px;}	
+.logo { width: 150px; }
+.form45b { width: 350px;margin-bottom:20px; }
+
+.title {font-size:22px;font-weight:bold}
+.heading {font-size:19px;font-weight:bold}
+.sub-heading {font-size:16px;font-weight:bold}
+.notes {font-size:11px;}
+.para {text-indent: 1.8em;
+	margin-top:1em;
+	margin-bottom:1em;}
+.signature {font-size:60px;}
+.signature-small {font-size:40px;}
+.signature-medium {font-size:50px;}
+.signature-tiny {font-size:30px;display:inline-block}
+
+
+
+
+.hide-item {display:none;}
+
+.table
+{
+	width:188mm;
+	margin-top:1.8em;
+	margin-bottom:1.8em;
+	border-collapse: collapse;
+	align:center !important;
+
+}
+.table-border {
+	border:  solid 0.6pt;
+}
+td {
+	text-align:justify;
+	vertical-align:top;
+}
+.letter-ol {
+	padding-inline-start: 1.8em !important;
+	padding:1em;
+}
+.letter-ol li {
+	padding: .5em
+}
+.letter-ol-main {
+	list-style-type: decimal;
+}
+
+.letter-ol-sub {
+	list-style-type: lower-roman;
+}
+.letter-ol-disc {
+	list-style-type: disc;
+}
+.letter-li {
+	padding: .5em
+}
+.text-deleted {
+	text-decoration: line-through;
+}
+.text-underline {
+	text-decoration: underline;
+}
+
+input, textarea, select { font-family:inherit; }
+textarea {
+  resize: none;
+}
+input[type=submit] 
+{ 
+background: #303f9f; 
+border: solid 1px #000000; 
+color: #ffffff;
+font-weight:bold;
+padding-bottom: 4px;
+width: 80px !important;
+height: 40px !important;
+bottom: 0;
+right: 0;
+position: fixed;
+z-index: 3000;
+	   
+
+}
+input[type=submit]:hover {background: white;color: #303f9f; }

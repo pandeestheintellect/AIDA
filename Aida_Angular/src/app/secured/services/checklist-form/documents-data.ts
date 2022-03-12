@@ -1,0 +1,73 @@
+export const documentsData = [
+    
+    {
+        service:'EC Clients',
+        documents:[
+            
+            {stepId: 2, documentName:'Partnership Cessation',filePath:'Achi Biz Checklist EC-Partnership Cessation.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 3, documentName:'Partnership Registration',filePath:'Achi Biz Checklist EC-Partnership Registration.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 4, documentName:'Partnership Renewal',filePath:'Achi Biz Checklist EC-Partnership Renewal.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 5, documentName:'Pte Ltd Annual Return',filePath:'Achi Biz Checklist EC-Pte Ltd Annual Return.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 6, documentName:'Pte Ltd Appointment-Auditor',filePath:'Achi Biz Checklist EC-Pte Ltd Appointment-Auditor.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 7, documentName:'Pte Ltd Appointment-Director',filePath:'Achi Biz Checklist EC-Pte Ltd Appointment-Director.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 8, documentName:'Pte Ltd Appointment-Secretary',filePath:'Achi Biz Checklist EC-Pte Ltd Appointment-Secretary.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 9, documentName:'Pte Ltd Change Of Address For M Index',filePath:'Achi Biz Checklist EC-Pte Ltd Change Of Address For M Index.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 10, documentName:'Pte Ltd Change of Business Activity',filePath:'Achi Biz Checklist EC-Pte Ltd Change of Business Activity.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 11, documentName:'Pte Ltd Change of Company Name',filePath:'Achi Biz Checklist EC-Pte Ltd Change of Company Name.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 12, documentName:'Pte Ltd Change of Constitution',filePath:'Achi Biz Checklist EC-Pte Ltd Change of Constitution.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 13, documentName:'Pte Ltd Change of Financial Year End-FYE',filePath:'Achi Biz Checklist EC-Pte Ltd Change of Financial Year End-FYE.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 14, documentName:'Pte Ltd Change Of Registered Address',filePath:'Achi Biz Checklist EC-Pte Ltd Change Of Registered Address.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 15, documentName:'Pte Ltd DivstepIdend Declaration',filePath:'Achi Biz Checklist EC-Pte Ltd DivstepIdend Declaration.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 16, documentName:'Pte Ltd Registration  Excluding Secretary',filePath:'Achi Biz Checklist EC-Pte Ltd Registration  Excluding Secretary.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 17, documentName:'Pte Ltd Registration  Including Secretary',filePath:'Achi Biz Checklist EC-Pte Ltd Registration  Including Secretary.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 18, documentName:'Pte Ltd Resignation-Auditor',filePath:'Achi Biz Checklist EC-Pte Ltd Resignation-Auditor.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 19, documentName:'Pte Ltd Resignation-Director',filePath:'Achi Biz Checklist EC-Pte Ltd Resignation-Director.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 20, documentName:'Pte Ltd Resignation-Secretary',filePath:'Achi Biz Checklist EC-Pte Ltd Resignation-Secretary.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 21, documentName:'Pte Ltd Share Allotment',filePath:'Achi Biz Checklist EC-Pte Ltd Share Allotment.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 22, documentName:'Pte Ltd Share Capital Reduction',filePath:'Achi Biz Checklist EC-Pte Ltd Share Capital Reduction.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 23, documentName:'Pte Ltd Share Transfer-ACRA-IRAS',filePath:'Achi Biz Checklist EC-Pte Ltd Share Transfer-ACRA-IRAS.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 24, documentName:'Pte Ltd Statutory Register',filePath:'Achi Biz Checklist EC-Pte Ltd Statutory Register.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 25, documentName:'Pte Ltd Strike Off-Deregistratrion',filePath:'Achi Biz Checklist EC-Pte Ltd Strike Off-Deregistratrion.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 26, documentName:'Sole Prop Cessation',filePath:'Achi Biz Checklist EC-Sole Prop Cessation.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 27, documentName:'Sole Prop Registration',filePath:'Achi Biz Checklist EC-Sole Prop Registration.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 28, documentName:'Sole Prop Renewal',filePath:'Achi Biz Checklist EC-Sole Prop Renewal.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+                        
+
+       ]
+    },
+    {
+        service:'NC Clients',
+        documents:[
+            {stepId: 2, documentName:'Partnership Cessation',filePath:'Achi Biz Checklist NC-Partnership Cessation.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 3, documentName:'Partnership Registration',filePath:'Achi Biz Checklist NC-Partnership Registration.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 4, documentName:'Partnership Renewal',filePath:'Achi Biz Checklist NC-Partnership Renewal.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 5, documentName:'Pte Ltd Annual Return',filePath:'Achi Biz Checklist NC-Pte Ltd Annual Return.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 6, documentName:'Pte Ltd Appointment-Auditor',filePath:'Achi Biz Checklist NC-Pte Ltd Appointment-Auditor.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 7, documentName:'Pte Ltd Appointment-Director',filePath:'Achi Biz Checklist NC-Pte Ltd Appointment-Director.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 8, documentName:'Pte Ltd Appointment-Secretary',filePath:'Achi Biz Checklist NC-Pte Ltd Appointment-Secretary.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 9, documentName:'Pte Ltd Change Of Address For M Index',filePath:'Achi Biz Checklist NC-Pte Ltd Change Of Address For M Index.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 10, documentName:'Pte Ltd Change of Business Activity',filePath:'Achi Biz Checklist NC-Pte Ltd Change of Business Activity.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 11, documentName:'Pte Ltd Change of Company Name',filePath:'Achi Biz Checklist NC-Pte Ltd Change of Company Name.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 12, documentName:'Pte Ltd Change of Constitution',filePath:'Achi Biz Checklist NC-Pte Ltd Change of Constitution.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 13, documentName:'Pte Ltd Change of Financial Year End-FYE',filePath:'Achi Biz Checklist NC-Pte Ltd Change of Financial Year End-FYE.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 14, documentName:'Pte Ltd Change Of Registered Address',filePath:'Achi Biz Checklist NC-Pte Ltd Change Of Registered Address.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 15, documentName:'Pte Ltd DivstepIdend Declaration',filePath:'Achi Biz Checklist NC-Pte Ltd DivstepIdend Declaration.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 16, documentName:'Pte Ltd Registration  Excluding Secretary',filePath:'Achi Biz Checklist NC-Pte Ltd Registration  Excluding Secretary.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 17, documentName:'Pte Ltd Registration  Including Secretary',filePath:'Achi Biz Checklist NC-Pte Ltd Registration  Including Secretary.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 18, documentName:'Pte Ltd Resignation-Auditor',filePath:'Achi Biz Checklist NC-Pte Ltd Resignation-Auditor.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 19, documentName:'Pte Ltd Resignation-Director',filePath:'Achi Biz Checklist NC-Pte Ltd Resignation-Director.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 20, documentName:'Pte Ltd Resignation-Secretary',filePath:'Achi Biz Checklist NC-Pte Ltd Resignation-Secretary.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 21, documentName:'Pte Ltd Share Allotment',filePath:'Achi Biz Checklist NC-Pte Ltd Share Allotment.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 22, documentName:'Pte Ltd Share Capital Reduction',filePath:'Achi Biz Checklist NC-Pte Ltd Share Capital Reduction.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 23, documentName:'Pte Ltd Share Transfer-ACRA-IRAS',filePath:'Achi Biz Checklist NC-Pte Ltd Share Transfer-ACRA-IRAS.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 24, documentName:'Pte Ltd Statutory Register',filePath:'Achi Biz Checklist NC-Pte Ltd Statutory Register.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 25, documentName:'Pte Ltd Strike Off-Deregistratrion',filePath:'Achi Biz Checklist NC-Pte Ltd Strike Off-Deregistratrion.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 26, documentName:'Rep Office Registration Application',filePath:'Achi Biz Checklist NC-Rep Office Registration Application.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 27, documentName:'Rep Office Registration',filePath:'Achi Biz Checklist NC-Rep Office Registration.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 28, documentName:'Rep Office Renewal',filePath:'Achi Biz Checklist NC-Rep Office Renewal.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 29, documentName:'Sole Prop Cessation',filePath:'Achi Biz Checklist NC-Sole Prop Cessation.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 30, documentName:'Sole Prop Registration',filePath:'Achi Biz Checklist NC-Sole Prop Registration.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+            {stepId: 31, documentName:'Sole Prop Renewal',filePath:'Achi Biz Checklist NC-Sole Prop Renewal.pdf',code:'',dependencyStepNo:0,executor:'',remarks:'',stepNo:0,versionNo:''},
+                   ]
+    }
+];

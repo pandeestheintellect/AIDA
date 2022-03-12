@@ -1,0 +1,197 @@
+@import '~@angular/material/theming';
+@import '../scss/utils';
+
+@mixin app-theme($theme) {
+
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+
+    $app-background:white;
+
+    .mat-form-field-should-float .mat-form-field-label
+    {
+      font-size: 18px !important;
+    }
+    .mat-pseudo-checkbox-checked{
+      background-color: mat-color($primary) !important;
+    }
+    
+    .SOP-form {
+      
+      .long-text{
+        width: 10px;
+        
+      }
+    }
+    .snackBarBackgroundColor
+    {
+      background-color: $secondary-color !important;
+      color: mat-color($primary) !important;
+      border-color:mat-color($primary) !important;
+      font-size: 13px !important;
+    }
+    .messageInfo
+    {
+      background-color: $secondary-color !important;
+      color: mat-color($primary) !important;
+      border-color:mat-color($primary) !important;
+      font-size: 13px !important;
+    }
+    .messageWarning
+    {
+      background-color: red !important;
+      color: white !important;
+      border-color:red !important;
+      font-size: 13px !important;
+    }
+
+    .layout-container {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        .sidenav-container {
+          flex: 1; 
+          background: $app-background;
+          .sidenav {
+            padding: 12px;
+            width: 250px;
+            background: $app-background;
+          }
+          .main-container {
+            padding: 16px;
+          }
+        }
+    }
+    
+    .app-page {
+      margin: 10px;
+      .page-toolbar{
+
+        border-radius: 4px;
+        background: $secondary-color;
+        color: mat-color($primary);
+        padding: 10px;
+
+        .header-spacer {
+          flex: 1 1 auto;
+        }
+
+        .mat-button-toggle {
+          background-color: mat-color($primary);
+          color: white;
+        }
+        
+        .mat-button-toggle-checked {
+          background-color: mat-color($primary);
+          color: white;
+        }
+      }
+
+      .page-sub-header {
+        min-height: 50px;
+        background-color:mat-color($primary) ;
+        color:white;
+        padding: 2px 16px 1px  16px ;
+      }
+    
+      .control-bar {
+        width:100%;
+        padding: 20px;
+        background-color: white;
+        .mat-form-field{
+          padding: 6px;
+        }
+      }
+
+      .footer-toolbar {
+        padding: 6px;
+        background-color: white;
+        
+        .spacer {
+          flex: 1 1 auto;
+        }
+
+        .mat-button {
+          width: 240px !important;
+        }
+        
+      }
+
+      .page-section {
+        padding: 20px;
+        background-color: white;
+        
+      }
+      .table {
+        width:100%;
+        max-height: calc(100vh - 200px);
+        overflow-y: auto;
+        padding: 10px;
+
+        .mat-header-row .mat-header-cell{
+          color: mat-color($primary);
+          background: #fff;
+          font-size: 15px;
+          font-weight: 500;
+        }
+        
+        .mat-button-toggle {
+          font-size: 18px;
+          background-color: mat-color($primary);
+          color: white;
+        }
+        
+        .mat-button-toggle-checked {
+          font-size: 18px;
+          background-color: mat-color($primary);
+          color: white;
+        }    
+      }
+    }
+
+    .service-button-toggle {
+      font-size: 16px;
+      background-color: mat-color($primary) !important;
+      color: white;
+    }
+
+    .app-dialog {
+      .heading{
+        margin-left: 6px;
+      }
+      .edit-section {
+       
+        .mat-form-field{
+          padding: 6px;
+        }
+      }
+      .table {
+        width:100%;
+        max-height: calc(100vh - 200px);
+        overflow-y: auto;
+        padding: 10px;
+
+        .mat-header-row .mat-header-cell{
+          color: mat-color($primary);
+          background: #fff;
+          font-size: 15px;
+          font-weight: 500;
+        }
+        
+        .mat-button-toggle {
+          background-color: mat-color($primary);
+          color: white;
+        }
+        
+        .mat-button-toggle-checked {
+          background-color: mat-color($primary);
+          color: white;
+        }    
+      }
+      
+    }
+}
